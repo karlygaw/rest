@@ -1,5 +1,5 @@
 package kz.narxoz.firstapp.rest.repository;
-import kz.narxoz.firstapp.rest.User;
+import kz.narxoz.firstapp.rest.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -54,5 +54,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //10-task
     @Query(value = "select distinct on (name) * from users", nativeQuery = true)
     List<User> findDistinctByName();
+
+    User findByUsername(String username);
+
+//    List<User> findAllSorted();
     // 2polzovateldin 1 alyp tastaidy
 }
